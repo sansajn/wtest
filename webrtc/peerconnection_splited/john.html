@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+
+<script src="https://webrtc.github.io/adapter/adapter-latest.js"></script>
+
+</head>
+
+<body>
+
+<div id="container">
+
+	<video id="localVideo" playsinline autoplay muted></video>
+	<div class="box">
+		<button id="callJane">Call Jane</button>
+	</div>
+
+	<p>View the console to see logging. The <code>MediaStream</code> object <code>localStream</code>, and the <code>RTCPeerConnection</code>
+		objects <code>pc1</code> and <code>pc2</code> are in global scope, so you can inspect them in the console as
+		well.</p>
+
+</div>
+
+
+<script>
+
+let johnPeer;
+let localSteam;
+
+const offerOptions = {
+	offerToReceiveVideo: 1
+};
+
+const callJaneButton = document.getElementById('callJane');
+callJaneButton.addEventListener('click', callJane);
+
+const localVideo = document.getElementById('localVideo');
+
+localVideo.addEventListener('loadedmetadata', function() {
+	console.log(`Local video videoWidth: ${this.videoWidth}px, videoHeight: ${this.videoHeight}px`);
+});
+
+async function callJane() {
+	console.log('Calling Jane ...');
+
+	// setup local stream
+	console.log('Requesting local stream');
+	try {
+		const stream = await navigator.mediaDevices.getUserMedia({video: true});
+		console.log('Received local stream');
+		localVideo.srcObject = stream;
+	} catch (e) {
+		alert(`getUserMedia() error: ${e.name}`);
+	}
+
+	// create connection
+	const config = {};
+	console.log('RTCPeerConnection configuration as string:', JSON.stringify(configuration));
+
+	johnPeer = new RTCPeerConnection(config);
+	johnPeer.addEventListener('icecandidate', e => onIceCandidate(e));
+	johnPeer.addEventListener('iceconnectionstatechange', e => onIceStateChang(e));
+
+	localSteam.getTracks().forEach(track => johnPeer.addTrack(track, localSteam));
+	console.log('Added local stream to johnPeer');
+
+	// send offer to Jane
+	try {
+		console.log('John createOffer start');
+		const offer = await johnPeer.createOffer(offerOptions);
+		await onCreateOfferSuccess(offer);
+	} catch (e) {
+		onCreateSessionDescriptionError(e);
+	}
+}
+
+async function onCreateOfferSuccess(desc) {
+
+}
+
+async function onIceCandidate(event) {
+	// tu potrebujem poslat event Jane (cez websocket)
+}
+
+function onIceStateChange(event) {
+	console.log(`ICE state: ${johnPeer.iceConnectionState}`);
+	console.log('ICE state change event: ', event);
+}
+
+function onCreateSessionDescriptionError(error) {
+	console.log(`Failed to create session description: ${error.toString()}`);
+}
+
+</script>
+
+</body>

@@ -76,7 +76,17 @@ async function callJane() {
 }
 
 async function onCreateOfferSuccess(desc) {
+	// set local description (offer)
+	console.log(`Offer from John\n${desc.sdp}`);
+	console.log('johnPeer setLocalDescription start');
+	try {
+		await johnPeer.setLocalDescription(desc);
+		console.log('John setLocalDescription complete');
+	} catch (error) {
+		console.log(`Failed to set session description: ${error.toString()}`);
+	}
 
+	// tu potrebujem poslat desc Jane (cez websocket)
 }
 
 async function onIceCandidate(event) {

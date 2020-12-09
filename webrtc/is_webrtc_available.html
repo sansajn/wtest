@@ -13,12 +13,40 @@ const isWebRTCSupported = navigator.getUserMedia ||
 	window.RTCPeerConnection;
 
 function main() {
-	if (isWebRTCSupported) {
-		document.write('WebRTC supported!');	
-	}
-	else {
-		document.write('WebRTC not supported!');	
-	}
+	// format support
+	let vid = document.createElement('video');
+	let mp4 = vid.canPlayType('video/mp4;codecs="avc1.4D401E, mp4a.40.2"');
+	let ogg = vid.canPlayType('video/ogg; codecs="theora, vorbis"');
+	let webm = vid.canPlayType('video/webm; codecs="vp8.0, vorbis"');
+	
+	let msg = '';
+	if (isWebRTCSupported)
+		msg += 'WebRTC supported!<br>';
+	else
+		msg += 'WebRTC not supported!<br>';
+
+	msg += 'video/mp4: '
+	if (mp4 != '')
+		msg += mp4;
+	else
+		msg += 'not supported';
+	msg += '<br>';
+
+	msg += 'video/ogg: '
+	if (ogg != '')
+		msg += ogg;
+	else
+		msg += 'not supported';
+	msg += '<br>'; 
+
+	msg += 'video/webm: '
+	if (webm != '')
+		msg += webm;
+	else
+		msg += 'not supported';
+	msg += '<br>';
+
+	document.write(msg);
 }
 
 </script>

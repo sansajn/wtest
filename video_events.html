@@ -1,0 +1,95 @@
+<!-- video element with event handlers sample -->
+<!DOCTYPE html>
+<html><head>
+<meta charset="utf8"/>
+
+<script>
+
+function main() {
+	let uri = 'http://dl5.webmfiles.org/big-buck-bunny_trailer.webm';
+	play(uri);
+}
+
+function play(uri) {
+	let player = document.getElementById('video');
+	
+	player.onerror = function() {
+		console.log('error: something went wrong!');
+	};
+
+	player.onstalled = function() {
+		console.log('stalled: media data is not available');
+	};
+
+	player.onabort = function() {
+		console.log('abort: video load aborted');
+	};
+
+	player.onsuspend = function() {
+		console.log('suspend: loading of the media is suspended');
+	};
+
+	player.onwaiting = function() {
+		console.log('waiting: I need to buffer the next frame');
+	};
+
+	/* video loading process
+		1. loadstart
+		2. durationchange
+		3. loadedmetadata
+		4. loadeddata
+		5. progress
+		6. canplay
+		7. canplaythrough */
+	player.onloadstart = function() {
+		console.log('loadstart: starting to load video');
+	};
+
+	player.ondurationchange = function() {
+		console.log('durationchange: the video duration has changed');
+	};
+
+	player.onloadedmetadata = function() {
+		console.log('loadedmetadata: metadata for video loaded');
+	};
+
+	player.onloadeddata = function() {
+		console.log('loadeddata: browser has loaded the current frame');
+	};
+
+	player.onprogress = function() {
+		console.log('progress: downloading video');
+	};
+
+	player.oncanplay = function() {
+		console.log('canplay: can start playing video');
+	};
+
+	player.oncanplaythrough = function() {
+		console.log('canplaythrough: can play through video without stopping');
+	};
+
+	player.src = uri;
+
+	const promise = player.play();
+	if (promise != undefined) {
+		promise.then(_ => {
+			// autoplay started!
+		}).catch(error => {
+			// autoplay prevented!
+			console.log('autoplay prevented by browser policy (' + error + ')');
+		});
+	}
+}
+
+</script>
+
+</head>
+	
+<body onload="main()">
+
+<video id="video" controls muted />
+
+</body>
+
+</html>

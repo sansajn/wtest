@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>input text with history as list element and button</title>
+</head>
+<body>
+
+<ul id="history" style="list-style: none;"></ul>
+<input type="text" placeholder="Type something..." id="input">
+<button type="button" onclick="send_message();">Send</button>
+	
+<script>
+
+function input_ui() {
+	return document.getElementById('input');
+}
+
+function history_ui() {
+	return document.querySelector('#history');
+}
+
+function send_message() {
+	let li = document.createElement('li');
+	li.textContent = input_ui().value;
+	history_ui().appendChild(li);
+}
+</script>
+
+</body>
+</html>

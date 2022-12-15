@@ -1,5 +1,4 @@
-# wtest
+This directory contains following web (HTML) related samples
 
-a bunch of web related samples and testing stuff ...
+`sidebar.html`: collapsible sidebar sample
 
-Adam Hlavatovic

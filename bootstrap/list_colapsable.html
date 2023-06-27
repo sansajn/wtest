@@ -1,0 +1,158 @@
+<!-- create collapcable list of items -->
+<!doctype html>
+<html lang="en">
+
+<head>
+	<!-- Required meta tags -->
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+	<!-- Bootstrap CSS -->
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
+		integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+	<title>Hello, world!</title>
+</head>
+
+<body>
+	<h1>channel_6</h1>
+	<ul class="list-group" id="itemList">
+		<li class="list-group-item">
+			<p data-toggle="collapse" data-target="#CollapseValidID" aria-expanded="false" aria-controls="#CollapseValidID">
+				Valid files <span class="badge badge-info badge-pill">4</span>
+			</p>
+
+			<div class="collapse" id="CollapseValidID">
+				<ul>
+					<li>tests/assets/sample_content/media/channel_6/objects/images/a1_1.jpg</li>
+					<li>tests/assets/sample_content/media/channel_6/objects/images/a2_1.jpg</li>
+					<li>tests/assets/sample_content/media/channel_6/objects/images/a3_1.jpg</li>
+					<li>tests/assets/sample_content/media/channel_6/objects/images/a4_1.jpg</li>
+				</ul>
+			</div>
+		</li>
+
+		<li class="list-group-item">
+			<button type="button" class="btn btn-light" data-toggle="collapse" data-target="#CollapseInvalidID" aria-expanded="false" aria-controls="#CollapseInvalidID">
+				Invalid files <span class="badge badge-warning badge-pill">1</span>
+			</button>
+
+			<div class="collapse" id="CollapseInvalidID">
+				<ul>
+					<li>tests/assets/sample_content/media/channel_6/objects/images/a3_1.jpg</li>
+				</ul>
+			</div>
+
+		</li>
+
+		<li class="list-group-item">
+			<button type="button" class="btn btn-link">
+				Missing <span class="badge badge-warning badge-pill">0</span>
+			</button>
+		</li>
+
+		<li class="list-group-item">
+			<button type="button" class="btn btn-link">
+				Unexpected <span class="badge badge-primary badge-pill">0</span>
+			</button>
+		</li>
+
+		<li class="list-group-item">
+			<button type="button" class="btn btn-link">
+				Infected <span class="badge badge-danger badge-pill">0</span>
+			</button>
+		</li>
+	</ul>
+
+	<br />
+
+	<button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#CollapseID2" aria-expanded="false" aria-controls="#CollapseID2">
+		Click me please
+	</button>
+
+	<div class="collapse" id="CollapseID2">
+		<ul>
+			<li>tests/assets/sample_content/media/channel_6/objects/images/a1_1.jpg</li>
+			<li>tests/assets/sample_content/media/channel_6/objects/images/a2_1.jpg</li>
+			<li>tests/assets/sample_content/media/channel_6/objects/images/a3_1.jpg</li>
+			<li>tests/assets/sample_content/media/channel_6/objects/images/a4_1.jpg</li>
+		</ul>
+	</div>
+
+	<br/><br/>
+
+	<h1>channel_7</h1>
+	<div class="list-group">
+		<a href="#" class="list-group-item list-group-item-action" aria-current="true" data-toggle="collapse" data-target="#CollapseValidID2" aria-expanded="false" aria-controls="#CollapseValidID2">
+			Valid files <span class="badge badge-info badge-pill">4</span>
+		</a>
+
+		<div class="collapse" id="CollapseValidID2">
+			<ul>
+				<li>tests/assets/sample_content/media/channel_7/objects/images/a1_1.jpg</li>
+				<li>tests/assets/sample_content/media/channel_7/objects/images/a2_1.jpg</li>
+				<li>tests/assets/sample_content/media/channel_7/objects/images/a3_1.jpg</li>
+				<li>tests/assets/sample_content/media/channel_7/objects/images/a4_1.jpg</li>
+			</ul>
+		</div>
+
+		<a href="#" class="list-group-item list-group-item-action" data-toggle="collapse" data-target="#CollapseInvalidID2" aria-expanded="false" aria-controls="#CollapseInvalidID2">
+			Invalid files <span class="badge badge-warning badge-pill">1</span>
+		</a>
+
+		<div class="collapse" id="CollapseInvalidID2">
+			<ul>
+				<li>tests/assets/sample_content/media/channel_7/objects/images/a3_1.jpg</li>
+			</ul>
+		</div>
+
+
+		<a href="#" class="list-group-item list-group-item-action">
+			Missing files <span class="badge badge-warning badge-pill">0</span>
+		</a>
+		
+		<a href="#" class="list-group-item list-group-item-action">
+			Unexpected (unreferenced) files <span class="badge badge-warning badge-pill">0</span>
+		</a>
+
+		<a href="#" class="list-group-item list-group-item-action">
+			Infected files <span class="badge badge-danger badge-pill">0</span>
+		</a>
+	 </div>
+
+	
+	<!-- Optional JavaScript -->
+	<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+		integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+		crossorigin="anonymous"></script>
+	<script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js"
+		integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+		crossorigin="anonymous"></script>
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"
+		integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+		crossorigin="anonymous"></script>
+
+<script>
+
+// const items = ["Item 1", "Item 2", "Item 3", "Item 4"]
+// const itemList = document.getElementById("itemList")
+
+// items.forEach(item => {
+// 	// Create a list item element
+// 	const li = document.createElement("li")
+// 	li.className = "list-group-item"
+
+// 	// Set the text content of the list item
+// 	li.appendChild(document.createTextNode(item))
+
+// 	// Add the list item to the list container
+// 	itemList.appendChild(li)
+// })
+
+</script>
+
+
+</body>
+
+</html>
